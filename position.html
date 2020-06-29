@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Position Practice</title>
+    <style media="screen">
+      body,html{
+        height:100%;
+        margin:0;
+        padding:0;
+        /*이는 브라우저가 가지는 디폴트값을 해제하기 위함.*/
+      }
+      body{
+        height:400%;
+        background-color: red;
+      }
+      #boxOne{
+        height: 300px;
+        width: 300px;
+        background-color: yellow;
+        position: static; /*default 값 페이지내에 그자체로 있음.*/
+      }
+      #boxTwo{
+        height: 300px;
+        width: 100%;
+        background-color: green;
+        position: fixed;
+        left: 0px;
+        bottom: 30px;
+      }
+
+      #boxThree{
+        height: 400px;
+        width: 400px;
+        background-color: blue;
+        position: relative;
+        
+
+      }
+      #ThreeChild{
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        position: absolute;
+        top:10px;
+        right: 10px;
+        /*
+        포지션이 absolute 가 되면 html 상에서 해당 element 와 관련있는(position 이 reltive) 부모 element 를 살펴보고
+        상응하는 관계가 있으면 그 부모를 중심으로 해서 포지션이 결정
+        상응하는 관계가 없으면 그냥 body를 중심으로 설정한대로 움직임 (top : 10px 이런걸로)
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boxOne">
+      <div class="box-child"></div>
+    </div>
+
+    <div id="boxTwo">
+      <div class="box-child"></div>
+    </div>
+
+    <div id="boxThree">
+      <div id="ThreeChild"></div>
+    </div>
+
+  </body>
+</html>
