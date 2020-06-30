@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Element States with css</title>
+    <style media="screen">
+      .box{
+        background-color: red;
+        font-size: 40px;
+      }
+      .box:hover{ /*위에 커서 올라가면 색변함*/
+        background-color: pink;
+      }
+      .box:active{/*클릭하면 색변함*/
+        background-color: green;
+      }
+      .seeval:focus{/*글쓰려고 하면 색변함*/
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea class="seeval"></textarea>
+    <span class="box">
+      lalalalalalala
+    </span>
+  </body>
+</html>

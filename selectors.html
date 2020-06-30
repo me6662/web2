@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Selectors</title>
+    <!--html 태그에 class 나 id 를 안추가하고 특정 tag를 선택하고 싶다면?
+  pseudo selector를 활용한다! (밑에처럼 타입가지고 선택함)
+이게 왜필요하냐? : 팀으로서 일할때 html 태그를 막 바꾸면 안되니까
+-->
+    <style media="screen">
+
+    input[type="submit"] {
+        background-color: green;
+      }
+    input[type="password"]{
+      background-color: blue;
+    }
+    input[required="required"]{
+      background-color: red;
+    }
+    input{
+      border : 5px solid yellow;
+    }
+    .box{
+      background-color: green;
+      display:block;
+      height: 100px;
+      border : solid black 3px;
+    }
+    .box:last-child{ /*마지막 박스를 선택*/
+      background-color: pink;
+    }
+    .box:nth-child(2n){
+      background-color: aliceblue;
+    }
+    .box:first-child{
+      background-color: red;
+    }
+
+    .container > .box { /* 이렇게 하면 컨테이너의 직계 아이인 box들은 무조건 배경색 lightblue으로 바뀜.*/
+      background-color: lightblue;
+    }
+    .child {
+      background-color: purple;
+      width: 40px;
+      height: 100px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="child"></div>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box">
+        <input type="password" required="required">
+        <input type="submit"  required="required">
+      </div>
+    </div>
+  </body>
+</html>

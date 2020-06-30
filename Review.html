@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Web2 Review</title>
+    <meta name="author" content="yang dong gyu">
+    <meta name="description" content="Basic CSS Theory Review">
+    <style media="screen">
+      html{
+        width: 100%;
+        height: 100%;
+        margin:0;
+        padding:0;
+      }
+      body{
+        height: 400%;
+      }
+      /*--------------------- 1. Box Model------------------- */
+      .a_box{
+        background-color: Lightblue;
+        width : 100px;
+        height: 100px;
+        padding : 10px 30px 50px 10px; /*상 부터 시계방향*/
+        margin : 5px 10px 15px 5px;  /*상 부터 시계방향*/
+        border : 5px dashed navy;
+      }
+      .a_box_inside{
+        background-color: white;
+        width: 50%; /* 부모 컨테이너의 비례 */
+        height: 50%;
+        border : 5px dashed lightpink;
+      }
+      /*--------------------- 2. display : inline ------------------- */
+      .b_box1{
+        background-color : lightgreen;
+        width: 50px;
+        height: 50px;
+        border : 3px solid black;
+        margin : 5px;
+      }
+      .b_box2{
+        background-color : pink;
+        width: 50px;
+        height: 50px;
+        border : 3px solid black;
+        margin : 5px;
+        display: inline-block;
+      }
+      .b_box3{
+        background-color : lightblue;
+        width: 50px;
+        height: 50px;
+        border : 3px solid black;
+        margin : 5px;
+        display: inline;
+      }
+      /*--------------------- 3. position ------------------- */
+      .c_box1{
+        background-color : lightblue;
+        width: 50px;
+        height: 50px;
+        border : 3px solid black;
+        margin : 5px;
+        position: static; /*default 값*/
+      }
+      .c_box1_child{
+        background-color : white;
+        width: 50%;
+        height: 50%;
+        border : 3px solid black;
+        margin : 5px;
+        position: static; /*default 값*/
+      }
+      .c_box2{
+        background-color : pink;
+        width: 50px;
+        height: 50px;
+        border : 3px solid black;
+        margin : 5px;
+      /*  position: fixed; 웹페이지에 고정됨*/
+      }
+      .c_box2_child{
+        background-color : white;
+        width: 50%;
+        height: 50%;
+        border : 3px solid black;
+        margin : 5px;
+        position: static; /*자식 새끼도 동일하게 fixed로 됨.*/
+      }
+      .c_box3{
+        background-color : lightgreen;
+        width: 100px;
+        height: 100px;
+        border : 3px solid black;
+        margin : 5px;
+        position: relative;
+      }
+      .c_box3_child{
+        background-color : white;
+        width: 50%;
+        height: 50%;
+        border : 3px solid black;
+        margin : 5px;
+        position: absolute;
+        top:10px;
+        right: 10px;
+      }
+      /*--------------------- 4. flex ------------------- */
+      .d_father{
+        height: 150px;
+        display: flex;  /*자식들은 자동으로 inline block 이 되버림 (flex가 되어야 아래애들 의미있음.)*/
+        justify-content:space-around; /*자식들 horizental 방향 정렬*/
+        align-items:flex-start; /*자식들 vertical 방향정렬*/
+        flex-direction: row; /* 자식들을 어느 방향으로 쌓을 것인가?
+        (row: 가로방향 ,row reverse : 역방향, column : 세로방향)
+        */
+        flex-wrap: wrap; /* no wrap : 자식들을 창 크기가 줄어도 한 행 or 열내에 쌓음
+        wrap : 다음 행, 열까지 확장 (그리드)
+        wrap reverse : 다음 행, 열 까지 확장 되나 역방향으로 확장됨.(그리드)
+        */
+      }
+      .d_box{
+        background-color: lightblue;
+        width: 50px;
+        height: 50px;
+        border : 3px solid black;
+        font-size: 20px;
+        color:black;
+
+        display: flex; /*flex는 꼭 div가 아니라 아이템에도 적용 (여기서 아이템은 글자.)*/
+        justify-content: center;
+        align-items: center;
+      }
+      /*--------------------- 5. selectors ------------------- */
+      input[type="submit"] {
+          background-color: lightgreen;
+        }
+      input[type="password"]{
+        background-color: lightblue;
+      }
+      input[required="required"]{
+        background-color: pink;
+      }
+      input{
+        border : 5px solid black;
+      }
+      .e_box{
+        background-color: lightgreen;
+        display:block;
+        height: 40px;
+        border : solid black 5px;
+      }
+      .e_box:last-child{ /*마지막 박스를 선택*/
+        background-color: pink;
+      }
+      .e_box:nth-child(2n){
+        background-color: lightblue;
+      }
+      .e_box:first-child{
+        background-color: pink;
+      }
+
+      .e_container > .e_box { /* 이렇게 하면 컨테이너의 직계 아이인 box들은 무조건 배경색 lightblue으로 바뀜.*/
+        background-color: white;
+      }
+      .e_box_child {
+        background-color: purple;
+        width: 20px;
+        height: 20px;
+      }
+      /*--------------------- 6. Elemental state ------------------- */
+      .box{
+        background-color: pink;
+        font-size: 40px;
+      }
+      .box:hover{ /*위에 커서 올라가면 색변함*/
+        background-color: lightyellow;
+      }
+      .box:active{/*클릭하면 색변함*/
+        background-color: lightgreen;
+      }
+      .seeval:focus{/*글쓰려고 하면 색변함*/
+        background-color: lightblue;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>1. Box Model</h1>
+    <div class="a_box">
+      <div class="a_box_inside">
+      </div>
+    </div>
+
+    <h1>2. Block vs Inline </h1>
+    <div class="b_box1">block</div>
+    <div class="b_box1">block</div>
+    <div class="b_box1">block</div>
+
+    <div class="b_box2">inline-block</div>
+    <div class="b_box2">inline-block</div>
+    <div class="b_box2">inline-block</div>
+
+    <div class="b_box3">inline</div>
+    <div class="b_box3">inline</div>
+    <div class="b_box3">inline</div>
+
+    <h1>3. Position</h1>
+    <div class="c_box1">
+      <div class="c_box1_child"></div>
+    </div>
+    <div class="c_box2">
+      <div class="c_box2_child"></div>
+    </div>
+    <div class="c_box3">
+      <div class="c_box3_child"></div>
+    </div>
+
+    <h1>4. Flex</h1>
+    <div class="d_father">
+      <div class="d_box">1</div>
+      <div class="d_box">2</div>
+      <div class="d_box">3</div>
+      <div class="d_box">4</div>
+      <div class="d_box">5</div>
+      <div class="d_box">6</div>
+      <div class="d_box">7</div>
+      <div class="d_box">8</div>
+      <div class="d_box">9</div>
+      <div class="d_box">10</div>
+    </div>
+
+    <h1>5. Pseudo Selectors</h1>
+    <div class="e_container">
+      <div class="e_box">
+        <div class="e_box_child"></div>
+      </div>
+      <div class="e_box"></div>
+      <div class="e_box"></div>
+      <div class="e_box"></div>
+      <div class="e_box"></div>
+      <div class="e_box"></div>
+      <div class="e_box">
+        <input type="password" required="required">
+        <input type="submit">
+      </div>
+    </div>
+
+    <h1>6. Elemental States</h1>
+    <textarea class="seeval"></textarea>
+    <span class="box">
+      lalalalalalala
+    </span>
+
+  </body>
+</html>
